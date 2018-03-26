@@ -8,6 +8,7 @@ class ToDo extends Component {
                 <span>{ this.props.description }</span>
                 <button onClick={ this.props.click }>Delete</button>
             </li>
+            
         );
     }
 }

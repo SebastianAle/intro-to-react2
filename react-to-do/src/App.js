@@ -47,7 +47,6 @@ class App extends Component {
              toggleComplete={ () => this.toggleComplete(index) } 
              click={ () => this.deleteToDo(index)} />
            )}
-
          </ul>
        </div>
      );
