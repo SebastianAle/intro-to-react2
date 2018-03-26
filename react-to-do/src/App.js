@@ -20,20 +20,34 @@ class App extends Component {
      console.log('handleSubmit called');
     }
     
-     toggleComplete(index) {
+    toggleComplete(index) {
     const todos = this.state.todos.slice();
     const todo = todos[index];
     todo.isCompleted = todo.isCompleted ? false : true;
     this.setState({ todos: todos });
     }
+
+    // Assignment Section --------------------------------------------
+    deleteToDo (index) {
+      const todos = this.state.todos;
+      const result = todos.filter(todo => todos.indexOf(todo) !== index);
+      this.setState({ todos: result});
+    }
+    // Assignment Section --------------------------------------------
  
     render() {
      return (
        <div className="App">
          <ul>
            { this.state.todos.map( (todo, index) =>
-             <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+             <ToDo 
+             key={ index } 
+             description={ todo.description } 
+             isCompleted={ todo.isCompleted } 
+             toggleComplete={ () => this.toggleComplete(index) } 
+             click={ () => this.deleteToDo(index)} />
            )}
+
          </ul>
        </div>
      );
